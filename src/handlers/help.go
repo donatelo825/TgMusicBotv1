@@ -63,15 +63,15 @@ func helpCallbackHandler(cb *telegram.CallbackQuery) error {
 
 	helpCategories := getHelpCategories()
 	if strings.Contains(data, "help_all") {
-		_, _ = cb.Answer("📚 Opening Help Menu...", &telegram.CallbackOptions{Alert: false})
-		response := fmt.Sprintf("Hello %s!\n\nI am %s, a fast and powerful music player for Telegram.\n\n<b>Supported Platforms:</b> YouTube, Spotify, Apple Music, SoundCloud.\n\nClick the <b>Help</b> button below for more information.", cb.Sender.FirstName, cb.Client.Me().FirstName)
+		_, _ = cb.Answer("📚 Opening Help Menu...", &telegram.CallbackOptions{Alert: false}
+			response := fmt.Sprintf("🎶 <b>Welcome %s!</b>\n\nI am <b>%s</b> — your Spotify-style music bot for Telegram voice chat.\n\n<b>✨ Features:</b>\n• Auto custom thumbnail (Spotify vibe) for now playing\n• Fast queue and playback controls\n• Playlist support\n\n<b>🎧 Supported Platforms:</b>\nYouTube, Spotify, Apple Music, SoundCloud\n\nTap <b>Help</b> to see all commands.", cb.Sender.FirstName, cb.Client.Me().FirstName)
 		_, _ = cb.Edit(response, &telegram.SendOptions{ReplyMarkup: core.HelpMenuKeyboard()})
 		return nil
 	}
 
 	if strings.Contains(data, "help_back") {
 		_, _ = cb.Answer("🏠 Returning to home...", &telegram.CallbackOptions{Alert: false})
-		response := fmt.Sprintf("Hello %s!\n\nI am %s, a fast and powerful music player for Telegram.\n\n<b>Supported Platforms:</b> YouTube, Spotify, Apple Music, SoundCloud.\n\nClick the <b>Help</b> button below for more information.", cb.Sender.FirstName, cb.Client.Me().FirstName)
+		response := fmt.Sprintf("🎶 <b>Welcome %s!</b>\n\nI am <b>%s</b> — your Spotify-style music bot for Telegram voice chat.\n\n<b>✨ Features:</b>\n• Auto custom thumbnail (Spotify vibe) for now playing\n• Fast queue and playback controls\n• Playlist support\n\n<b>🎧 Supported Platforms:</b>\nYouTube, Spotify, Apple Music, SoundCloud\n\nTap <b>Help</b> to see all commands.", cb.Sender.FirstName, cb.Client.Me().FirstName)
 		_, _ = cb.Edit(response, &telegram.SendOptions{ReplyMarkup: core.AddMeMarkup(cb.Client.Me().Username)})
 		return nil
 	}
