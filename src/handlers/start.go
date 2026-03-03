@@ -65,8 +65,7 @@ func startHandler(m *telegram.NewMessage) error {
 		}(chatID)
 	}
 
-	response := fmt.Sprintf("Hello %s!\n\nI am %s, a fast and powerful music player for Telegram.\n\n<b>Supported Platforms:</b> YouTube, Spotify, Apple Music, SoundCloud.\n\nClick the <b>Help</b> button below for more information.", m.Sender.FirstName, bot.FirstName)
-	_, err := m.Reply(response, &telegram.SendOptions{
+	response := fmt.Sprintf("🎶 <b>Welcome %s!</b>\n\nI am <b>%s</b> — your Spotify-style music bot for Telegram voice chat.\n\n<b>✨ Features:</b>\n• Auto custom thumbnail (Spotify vibe) for now playing\n• Fast queue and playback controls\n• Playlist support\n\n<b>🎧 Supported Platforms:</b>\nYouTube, Spotify, Apple Music, SoundCloud\n\nTap <b>Help</b> to see all commands.", m.Sender.FirstName, bot.FirstName)
 		ReplyMarkup: core.AddMeMarkup(m.Client.Me().Username),
 	})
 
