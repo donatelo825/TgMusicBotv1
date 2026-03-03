@@ -1,5 +1,3 @@
-
- */
 package handlers
 
 import (
